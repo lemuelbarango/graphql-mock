@@ -61,4 +61,5 @@ typings/
 .next
 
 schema.json
+mock.json
 dist
