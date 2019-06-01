@@ -31,9 +31,8 @@ const mocksMap = {
   ...mockJSON
 };
 const mocks = defineMocks(mocksMap);
-const schemaJson = introspectionQueryResult.hasOwnProperty("data") ? introspectionQueryResult.data : introspectionQueryResult
 
-const schema = buildClientSchema(<IntrospectionQuery>schemaJson);
+const schema = buildClientSchema(<IntrospectionQuery>introspectionQueryResult.data);
 addMockFunctionsToSchema({
   schema, mocks,
   preserveResolvers: true
