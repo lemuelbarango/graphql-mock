@@ -21,7 +21,7 @@ lemuelbarango/graphql-mock
 # Also accepts schema URL as an env variable
 docker run  -p 4000:4000 \
 -e SCHEMA_URL='https://raw.githubusercontent.com/lemuelbarango/graphql-mock/master/src/schema.json' \
-graphql-mock
+lemuelbarango/graphql-mock
 ```
 
 To override mock values with example `mock.json`
