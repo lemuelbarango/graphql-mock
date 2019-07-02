@@ -24,6 +24,7 @@ const defineMocks = (mocksObj = {}) => {
 }
 
 const downloadSchema = async () => await axios.get(process.env.SCHEMA_URL).then(response => response.data);
+const downloadMockJSON = async () => await axios.get(process.env.MOCK_JSON_URL).then(response => response.data);
 
 (async () => {
   const mocksMap = {
@@ -32,7 +33,7 @@ const downloadSchema = async () => await axios.get(process.env.SCHEMA_URL).then(
     String: "random.word",
     ID: "random.uuid",
     Boolean: "random.boolean",
-    ...mockJSON
+    ...(process.env.MOCK_JSON_URL ? await downloadMockJSON() : mockJSON)
   };
   const mocks = defineMocks(mocksMap);
   
